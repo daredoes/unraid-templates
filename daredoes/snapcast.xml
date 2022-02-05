@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support/>
+  <Support>https://forums.unraid.net/topic/119582-support-daredoes-snapcast/</Support>
   <Project>https://hub.docker.com/r/daredoes/snapcast</Project>
   <Overview>The config can be edited while the docker container is running in `/etc/snapserver.conf`&#xD;
 &#xD;
