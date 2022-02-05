@@ -20,7 +20,7 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
   <TemplateURL>https://raw.githubusercontent.com/maschhoff/docker/master/unraid%20xml/my-Snapcast.xml</TemplateURL>
   <Icon>http://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Player-Audio-icon.png</Icon>
   <ExtraParams/>
-  <PostArgs>snapserver</PostArgs>
+  <PostArgs>sh /start.sh</PostArgs>
   <CPUset/>
   <DateInstalled>1643967351</DateInstalled>
   <DonateText/>
