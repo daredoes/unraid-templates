@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Mopidy3</Name>
+  <Repository>daredoes/mopidy3:latest</Repository>
+  <Registry>https://hub.docker.com/r/daredoes/mopidy3</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/maschhoff/docker/tree/master/mopidy</Project>
+  <Overview>&#xD;
+Mopidy is an extensible music server written in Python.&#xD;
+Mopidy plays music from local disk, Spotify, SoundCloud, Google Play Music, and more. You edit the playlist from any phone, tablet, or computer using a range of MPD and web clients.&#xD;
+&#xD;
+This is Mopidy3 for unraid with support for snapcast and icecast.&#xD;
+&#xD;
+- set up the docker&#xD;
+- set up the network to br0 with an ip&#xD;
+- set up volume mount to /mnt/user/appdata/mopidy/ &amp;gt;&amp;gt; /config/&#xD;
+- set up volume mount for tmp/snapfifo if you use snapcast /mnt/user/appdata/mopidy/tmp/ &amp;gt;&amp;gt; /tmp  &#xD;
+- set up volume mount for your local media &#xD;
+&#xD;
+generate the mopidy.conf file *Doc here https://docs.mopidy.com/en/latest/config/ *example here https://github.com/maschhoff/docker/blob/master/mopidy/mopidy.conf&#xD;
+&#xD;
+authentication for soundcloud and spotify https://www.mopidy.com/authenticate/ *authenticate spotify https://developer.spotify.com/documentation/web-api/quick-start/&#xD;
+&#xD;
+use docker icecast or snapcast for music streaming:&#xD;
+ &#xD;
+for audio you need a special config&#xD;
+for snapcast you have to generate the audio output in a pipe file /tmp/snapfifo this is mounted in both docker container&#xD;
+&#xD;
+[audio]&#xD;
+output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioconvert ! wavenc ! filesink location=/tmp/snapfifo&#xD;
+&#xD;
+icecast&#xD;
+&#xD;
+[audio]&#xD;
+output = lamemp3enc ! shout2send async=false mount=mopidy ip=X.X.X.X port=8000 password=XXXXX&#xD;
+</Overview>
+  <Category>Other: MediaApp:Music MediaServer:Music Status:Stable</Category>
+  <WebUI>http://[IP]:[PORT:6680]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/maschhoff/docker/master/unraid%20xml/my-Mopidy3.xml</TemplateURL>
+  <Icon>https://github.com/maschhoff/docker/raw/master/mopidy/mopidy.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1644113834</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>&#xD;
+Mopidy is an extensible music server written in Python.&#xD;
+Mopidy plays music from local disk, Spotify, SoundCloud, Google Play Music, and more. You edit the playlist from any phone, tablet, or computer using a range of MPD and web clients.&#xD;
+&#xD;
+This is Mopidy3 for unraid with support for snapcast and icecast.&#xD;
+&#xD;
+- set up the docker&#xD;
+- set up the network to br0 with an ip&#xD;
+- set up volume mount to /mnt/user/appdata/mopidy/ &amp;gt;&amp;gt; /config/&#xD;
+- set up volume mount for tmp/snapfifo if you use snapcast /mnt/user/appdata/mopidy/tmp/ &amp;gt;&amp;gt; /tmp  &#xD;
+- set up volume mount for your local media &#xD;
+&#xD;
+generate the mopidy.conf file *Doc here https://docs.mopidy.com/en/latest/config/ *example here https://github.com/maschhoff/docker/blob/master/mopidy/mopidy.conf&#xD;
+&#xD;
+authentication for soundcloud and spotify https://www.mopidy.com/authenticate/ *authenticate spotify https://developer.spotify.com/documentation/web-api/quick-start/&#xD;
+&#xD;
+use docker icecast or snapcast for music streaming:&#xD;
+ &#xD;
+for audio you need a special config&#xD;
+for snapcast you have to generate the audio output in a pipe file /tmp/snapfifo this is mounted in both docker container&#xD;
+&#xD;
+[audio]&#xD;
+output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioconvert ! wavenc ! filesink location=/tmp/snapfifo&#xD;
+&#xD;
+icecast&#xD;
+&#xD;
+[audio]&#xD;
+output = lamemp3enc ! shout2send async=false mount=mopidy ip=X.X.X.X port=8000 password=XXXXX&#xD;
+</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>5555</HostPort>
+        <ContainerPort>5555</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6600</HostPort>
+        <ContainerPort>6600</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6680</HostPort>
+        <ContainerPort>6680</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/mopidy/</HostDir>
+      <ContainerDir>/config/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/tmp/snapcast</HostDir>
+      <ContainerDir>/tmp/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/remotes/DAREDOESNAS_NetBackup/Media/music/</HostDir>
+      <ContainerDir>/media</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="config" Target="/config/" Default="" Mode="rw" Description="Container Path: /config/mopidy.conf" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/mopidy/</Config>
+  <Config Name="Host Path 2" Target="/tmp/" Default="" Mode="rw" Description="Container Path: /tmp/snapfifo" Type="Path" Display="always" Required="false" Mask="false">/tmp/snapcast</Config>
+  <Config Name="Host Path 3" Target="/media" Default="" Mode="rw" Description="Container Path: /media" Type="Path" Display="always" Required="false" Mask="false">/mnt/remotes/DAREDOESNAS_NetBackup/Media/music/</Config>
+  <Config Name="Audio" Target="5555" Default="5555" Mode="tcp" Description="Audio port? idk leave as is" Type="Port" Display="advanced" Required="true" Mask="false">5555</Config>
+  <Config Name="MPD Port" Target="6600" Default="6600" Mode="tcp" Description="This should match whats in your config" Type="Port" Display="advanced" Required="true" Mask="false">6600</Config>
+  <Config Name="HTTP Port" Target="6680" Default="6680" Mode="tcp" Description="Where the webserver lives" Type="Port" Display="advanced" Required="true" Mask="false">6680</Config>
+</Container>
