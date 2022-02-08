@@ -95,6 +95,11 @@ output = lamemp3enc ! shout2send async=false mount=mopidy ip=X.X.X.X port=8000 p
         <ContainerPort>6680</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
+      <Port>
+        <HostPort>3000</HostPort>
+        <ContainerPort>9001</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
     </Publish>
   </Networking>
   <Data>
@@ -122,4 +127,5 @@ output = lamemp3enc ! shout2send async=false mount=mopidy ip=X.X.X.X port=8000 p
   <Config Name="Audio" Target="5555" Default="5555" Mode="tcp" Description="Audio port? idk leave as is" Type="Port" Display="advanced" Required="true" Mask="false">5555</Config>
   <Config Name="MPD Port" Target="6600" Default="6600" Mode="tcp" Description="This should match whats in your config" Type="Port" Display="advanced" Required="true" Mask="false">6600</Config>
   <Config Name="HTTP Port" Target="6680" Default="6680" Mode="tcp" Description="Where the webserver lives" Type="Port" Display="advanced" Required="true" Mask="false">6680</Config>
+  <Config Name="Supervisord Port" Target="9001" Default="9001" Mode="tcp" Description="Where the supervisord web UI lives" Type="Port" Display="advanced" Required="true" Mask="false">3000</Config>
 </Container>
