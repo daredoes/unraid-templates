@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>NetlifyDDNS</Name>
+  <Repository>daredoes/netlify-ddns:latest</Repository>
+  <Registry>https://hub.docker.com/r/daredoes/netlify-ddns</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/oscartbeaumont/netlify-dynamic-dns</Project>
+  <Overview>Like DuckDNS, but for Netlify</Overview>
+  <Category>Network:DNS</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/maschhoff/docker/master/unraid%20xml/my-Snapcast.xml</TemplateURL>
+  <Icon>https://api.iconify.design/logos/netlify.svg</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1644306730</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Like DuckDNS, but for Netlify</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish/>
+  </Networking>
+  <Data/>
+  <Environment>
+    <Variable>
+      <Value></Value>
+      <Name>NDDNS_ACCESS_TOKEN</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>NDDNS_ZONE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>home</Value>
+      <Name>NDDNS_RECORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>5</Value>
+      <Name>NDDNS_INTERVAL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>false</Value>
+      <Name>NDDNS_IPv6_ENABLED</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Access Token" Target="NDDNS_ACCESS_TOKEN" Default="" Mode="" Description="It can be created here: https://app.netlify.com/account/applications" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Domain" Target="NDDNS_ZONE" Default="example.com" Mode="" Description="Container Variable: NDDNS_ZONE" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Subdomain" Target="NDDNS_RECORD" Default="home" Mode="" Description="Container Variable: NDDNS_RECORD" Type="Variable" Display="always" Required="true" Mask="false">home</Config>
+  <Config Name="Interval" Target="NDDNS_INTERVAL" Default="5" Mode="" Description="Interval of time in minutes between IP address updates" Type="Variable" Display="always" Required="false" Mask="false">5</Config>
+  <Config Name="IPV6" Target="NDDNS_IPv6_ENABLED" Default="false" Mode="" Description="Update the AAAA IPV6 Record As Well" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+</Container>
