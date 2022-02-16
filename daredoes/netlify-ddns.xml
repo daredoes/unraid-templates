@@ -29,34 +29,28 @@
   <Environment>
     <Variable>
       <Value></Value>
-      <Name>NDDNS_ACCESS_TOKEN</Name>
+      <Name>NETLIFY_TOKEN</Name>
       <Mode/>
     </Variable>
     <Variable>
       <Value></Value>
-      <Name>NDDNS_ZONE</Name>
+      <Name>NETLIFY_DOMAIN</Name>
       <Mode/>
     </Variable>
     <Variable>
       <Value>home</Value>
-      <Name>NDDNS_RECORD</Name>
+      <Name>NETLIFY_SUBDOMAIN</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>5</Value>
-      <Name>NDDNS_INTERVAL</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>false</Value>
-      <Name>NDDNS_IPv6_ENABLED</Name>
+      <Value>3600</Value>
+      <Name>NETLIFY_TTL</Name>
       <Mode/>
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Access Token" Target="NDDNS_ACCESS_TOKEN" Default="" Mode="" Description="It can be created here: https://app.netlify.com/account/applications" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="Domain" Target="NDDNS_ZONE" Default="example.com" Mode="" Description="Container Variable: NDDNS_ZONE" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="Subdomain" Target="NDDNS_RECORD" Default="home" Mode="" Description="Container Variable: NDDNS_RECORD" Type="Variable" Display="always" Required="true" Mask="false">home</Config>
-  <Config Name="Interval" Target="NDDNS_INTERVAL" Default="5" Mode="" Description="Interval of time in minutes between IP address updates" Type="Variable" Display="always" Required="false" Mask="false">5</Config>
-  <Config Name="IPV6" Target="NDDNS_IPv6_ENABLED" Default="false" Mode="" Description="Update the AAAA IPV6 Record As Well" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="Access Token" Target="NETLIFY_TOKEN" Default="" Mode="" Description="It can be created here: https://app.netlify.com/account/applications" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Domain" Target="NETLIFY_DOMAIN" Default="example.com" Mode="" Description="Container Variable: NETLIFY_DOMAIN" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Subdomain" Target="NETLIFY_SUBDOMAIN" Default="home" Mode="" Description="Container Variable: NETLIFY_SUBDOMAIN" Type="Variable" Display="always" Required="true" Mask="false">home</Config>
+  <Config Name="Interval" Target="NETLIFY_TTL" Default="3600" Mode="" Description="Interval of time in minutes between IP address updates" Type="Variable" Display="always" Required="false" Mask="false">3600</Config>
 </Container>
