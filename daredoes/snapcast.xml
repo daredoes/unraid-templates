@@ -49,6 +49,76 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
         <ContainerPort>1704</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
+      <Port>
+        <HostPort>3689</HostPort>
+        <ContainerPort>3689</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5000</HostPort>
+        <ContainerPort>5000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5001</HostPort>
+        <ContainerPort>5001</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5002</HostPort>
+        <ContainerPort>5002</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5003</HostPort>
+        <ContainerPort>5003</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5004</HostPort>
+        <ContainerPort>5004</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5005</HostPort>
+        <ContainerPort>5005</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5353</HostPort>
+        <ContainerPort>5353</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6000</HostPort>
+        <ContainerPort>6000</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6001</HostPort>
+        <ContainerPort>6001</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6002</HostPort>
+        <ContainerPort>6002</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6003</HostPort>
+        <ContainerPort>6003</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6004</HostPort>
+        <ContainerPort>6004</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6005</HostPort>
+        <ContainerPort>6005</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
     </Publish>
   </Networking>
   <Data>
@@ -64,4 +134,18 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
   <Config Name="Web" Target="1780" Default="1780" Mode="tcp" Description="Container Port: 1780" Type="Port" Display="always" Required="true" Mask="false">1780</Config>
   <Config Name="Control" Target="1705" Default="1705" Mode="tcp" Description="This is the port for control of the snapcast server" Type="Port" Display="advanced" Required="true" Mask="false">1705</Config>
   <Config Name="Player" Target="1704" Default="1704" Mode="tcp" Description="This is the port for the player of Snapcast" Type="Port" Display="advanced" Required="true" Mask="false">1704</Config>
+  <Config Name="Avahi" Target="5353" Default="5353" Mode="tcp" Description="This is the port for Avahi" Type="Port" Display="advanced" Required="true" Mask="false">5353</Config>
+  <Config Name="Airplay" Target="3689" Default="3689" Mode="tcp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">3689</Config>
+  <Config Name="Airplay" Target="5000" Default="5000" Mode="tcp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">5000</Config>
+  <Config Name="Airplay" Target="5001" Default="5001" Mode="tcp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">5001</Config>
+  <Config Name="Airplay" Target="5002" Default="5002" Mode="tcp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">5002</Config>
+  <Config Name="Airplay" Target="5003" Default="5003" Mode="tcp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">5003</Config>
+  <Config Name="Airplay" Target="5004" Default="5004" Mode="tcp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">5004</Config>
+  <Config Name="Airplay" Target="5005" Default="5005" Mode="tcp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">5005</Config>
+  <Config Name="Airplay" Target="6000" Default="6000" Mode="udp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">6000</Config>
+  <Config Name="Airplay" Target="6001" Default="6001" Mode="udp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">6001</Config>
+  <Config Name="Airplay" Target="6002" Default="6002" Mode="udp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">6002</Config>
+  <Config Name="Airplay" Target="6003" Default="6003" Mode="udp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">6003</Config>
+  <Config Name="Airplay" Target="6004" Default="6004" Mode="udp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">6004</Config>
+  <Config Name="Airplay" Target="6005" Default="6005" Mode="udp" Description="This is the port for part of airplay" Type="Port" Display="advanced" Required="true" Mask="false">6005</Config>
 </Container>
