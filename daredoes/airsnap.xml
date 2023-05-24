@@ -25,6 +25,8 @@
     &#xD;
     This adds like 9-10 seconds of lag to the stream for pause/play. Voume remains instant. &#xD;
     &#xD;
+    To deal with the added lag, set the latency of your NON-AIRPLAY snapcast clients to NEGATIVE the milliseconds of latency, so 9-10 seconds might be -9400. &#xD;
+    &#xD;
     Supports controlling homepod volume via snapcast. Doesn't detect changes to volume to homepod (yet) help appreciated.  No metadata support yet either. &#xD;
   </Description>
   <Networking>
