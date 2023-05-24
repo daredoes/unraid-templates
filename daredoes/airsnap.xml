@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>AirSnap</Name>
+  <Repository>daredoes/airsnap</Repository>
+  <Registry>https://hub.docker.com/r/daredoes/snapcast</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/119582-support-daredoes-snapcast/</Support>
+  <Project>https://hub.docker.com/r/daredoes/airsnap</Project>
+  <Overview>Creates snapcast clients for any airplay device!</Overview>
+  <Category>MediaServer:Music</Category>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/maschhoff/docker/master/unraid%20xml/my-Snapcast.xml</TemplateURL>
+  <Icon>https://icons.iconarchive.com/icons/martz90/circle-addon1/256/airplay-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs></PostArgs>
+  <CPUset/>
+  <DateInstalled>1684893392171</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>
+    Make sure network is host to see airplay devices (or tell me how to fix this in support thread). Go to the Web UI. Have fun.&#xD;
+    &#xD;
+    This adds like 9-10 seconds of lag to the stream for pause/play. Voume remains instant. &#xD;
+    &#xD;
+    Supports controlling homepod volume via snapcast. Doesn't detect changes to volume to homepod (yet) help appreciated.  No metadata support yet either. &#xD;
+  </Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="Web" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+</Container>
