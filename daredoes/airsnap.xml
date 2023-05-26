@@ -11,7 +11,7 @@
   <Project>https://hub.docker.com/r/daredoes/airsnap</Project>
   <Overview>Creates snapcast clients for any airplay device!</Overview>
   <Category>MediaServer:Music</Category>
-  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <WebUI>http://[IP]:[PORT:731]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/maschhoff/docker/master/unraid%20xml/my-Snapcast.xml</TemplateURL>
   <Icon>https://icons.iconarchive.com/icons/martz90/circle-addon1/256/airplay-icon.png</Icon>
   <ExtraParams/>
@@ -27,21 +27,27 @@
     &#xD;
     To deal with the added lag, set the latency of your NON-AIRPLAY snapcast clients to NEGATIVE the milliseconds of latency, so 9-10 seconds might be -9400. &#xD;
     &#xD;
-    Supports controlling homepod volume via snapcast. Doesn't detect changes to volume to homepod (yet) help appreciated.  No metadata support yet either. &#xD;
+    Support for controlling homepod volume via snapcast and vice-versa in-progress.  No metadata support yet either. &#xD;
   </Description>
   <Networking>
     <Mode>host</Mode>
     <Publish>
-      <Port>
-        <HostPort>8080</HostPort>
-        <ContainerPort>8080</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
+      <Variable>
+        <Value>731</Value>
+        <Name>PORT</Name>
+        <Mode/>
+      </Variable>
+      <Variable>
+        <Value></Value>
+        <Name>SNAPCAST_SERVER</Name>
+        <Mode/>
+      </Variable>
     </Publish>
   </Networking>
   <Data>
   </Data>
   <Environment/>
   <Labels/>
-  <Config Name="Web" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="Port" Target="PORT" Default="731" Mode="" Description="Container Variable: PORT" Type="Variable" Display="always" Required="true" Mask="false">731</Config>
+  <Config Name="Snapcast Server" Target="SNAPCAST_SERVER" Default="" Mode="" Description="Container Variable: SNAPCAST_SERVER" Type="Variable" Display="always" Required="true" Mask="false"></Config>
 </Container>
