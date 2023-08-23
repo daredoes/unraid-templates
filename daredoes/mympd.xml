@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>MyMpd</Name>
+  <Repository>daredoes/mympd:latest</Repository>
+  <Registry>https://hub.docker.com/r/daredoes/mympd</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/119582-support-daredoes-snapcast</Support>
+  <Project>https://jcorporation.github.io/myMPD/</Project>
+  <Overview>&#xD;
+MyMPD + MPD pre-configured for Snapcast&#xD;
+&#xD;
+</Overview>
+  <Category>Other: MediaApp:Music MediaServer:Music Status:Stable</Category>
+  <WebUI>http://[IP]:[PORT:9001]/</WebUI>
+  <TemplateURL>https://github.com/daredoes/unraid-templates/blob/main/daredoes/mympd.xml</TemplateURL>
+  <Icon>https://avatars.githubusercontent.com/u/765844</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1644113834</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>&#xD;
+    MyMPD + MPD pre-configured for Snapcast&#xD;
+</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>6600</HostPort>
+        <ContainerPort>6600</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>9001</HostPort>
+        <ContainerPort>9001</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/mympd/mpd</HostDir>
+      <ContainerDir>/user/config/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/tmp/snapcast</HostDir>
+      <ContainerDir>/tmp/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/music</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/log</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/playlists</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/db</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="config" Target="/user/config/" Default="" Mode="rw" Description="MPD config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/mympd/mpd</Config>
+  <Config Name="Snapcast FIFO" Target="/tmp/" Default="" Mode="rw" Description="Container Path: /tmp/snapfifo" Type="Path" Display="always" Required="false" Mask="false">/tmp/snapcast</Config>
+  <Config Name="Music" Target="/music" Default="" Mode="rw" Description="Container Path: /music" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Logs" Target="/log" Default="" Mode="rw" Description="Container Path: /log" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/mympd/log</Config>
+  <Config Name="Playlists" Target="/playlists" Default="" Mode="rw" Description="Container Path: /playlists" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/mympd/playlists</Config>
+  <Config Name="DB" Target="/db" Default="" Mode="rw" Description="Container Path: /db" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/mympd/db</Config>
+  <Config Name="MPD Port" Target="6600" Default="6600" Mode="tcp" Description="This should match whats in your config" Type="Port" Display="advanced" Required="true" Mask="false">6600</Config>
+  <Config Name="MyMPD HTTP Port" Target="8080" Default="8080" Mode="tcp" Description="Where the webserver lives" Type="Port" Display="advanced" Required="true" Mask="false">8080</Config>
+  <Config Name="Supervisord Port" Target="9001" Default="9001" Mode="tcp" Description="Where the supervisord web UI lives" Type="Port" Display="advanced" Required="true" Mask="false">9001</Config>
+</Container>
