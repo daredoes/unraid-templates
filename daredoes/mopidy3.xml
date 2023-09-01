@@ -87,7 +87,7 @@ To configure the instance and snapcast settings, copy the template to your confi
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/Mopidy3/cache</HostDir>
+      <HostDir>/dev/shm/Mopidy3</HostDir>
       <ContainerDir>/cache/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -126,7 +126,7 @@ To configure the instance and snapcast settings, copy the template to your confi
   </Environment>
   <Labels/>
   <Config Name="config" Target="/etc/mopidy/" Default="/mnt/user/appdata/Mopidy3/config" Mode="rw" Description="Where the config files live" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mopidy/config</Config>
-  <Config Name="cache" Target="/cache/" Default="/mnt/user/appdata/Mopidy3/cache" Mode="rw" Description="Where the cache data live" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mopidy/cache</Config>
+  <Config Name="cache" Target="/cache/" Default="/dev/shm/Mopidy3" Mode="rw" Description="Where the cache data live" Type="Path" Display="always" Required="true" Mask="false">/dev/shm/Mopidy3</Config>
   <Config Name="data" Target="/data/" Default="/mnt/user/appdata/Mopidy3/data" Mode="rw" Description="Where the Mopidy Data lives" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mopidy/data</Config>
   <Config Name="Snapcast FIFO Directory" Target="/tmp/" Default="/dev/shm/snapcast" Mode="rw" Description="The folder where the fifo files will be saved" Type="Path" Display="always" Required="true" Mask="false">/dev/shm/snapcast</Config>
   <Config Name="Music" Target="/media" Default="" Mode="rw" Description="The location of your music" Type="Path" Display="always" Required="true" Mask="false"></Config>
