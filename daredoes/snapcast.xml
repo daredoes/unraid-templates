@@ -123,14 +123,14 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/tmp/snapcast</HostDir>
+      <HostDir>/dev/shm/snapcast</HostDir>
       <ContainerDir>/data/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
   <Environment/>
   <Labels/>
-  <Config Name="Host Path 1" Target="/data/" Default="" Mode="rw" Description="Container Path: /data/" Type="Path" Display="always" Required="false" Mask="false">/tmp/snapcast</Config>
+  <Config Name="Host Path 1" Target="/data/" Default="" Mode="rw" Description="Container Path: /data/" Type="Path" Display="always" Required="false" Mask="false">/dev/shm/snapcast</Config>
   <Config Name="Web" Target="1780" Default="1780" Mode="tcp" Description="Container Port: 1780" Type="Port" Display="always" Required="true" Mask="false">1780</Config>
   <Config Name="Control" Target="1705" Default="1705" Mode="tcp" Description="This is the port for control of the snapcast server" Type="Port" Display="advanced" Required="true" Mask="false">1705</Config>
   <Config Name="Player" Target="1704" Default="1704" Mode="tcp" Description="This is the port for the player of Snapcast" Type="Port" Display="advanced" Required="true" Mask="false">1704</Config>

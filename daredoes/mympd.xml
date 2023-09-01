@@ -53,7 +53,7 @@ MyMPD + MPD pre-configured for Snapcast&#xD;
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/tmp/snapcast</HostDir>
+      <HostDir>/dev/shm/snapcast</HostDir>
       <ContainerDir>/tmp/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -81,7 +81,7 @@ MyMPD + MPD pre-configured for Snapcast&#xD;
   <Environment/>
   <Labels/>
   <Config Name="config" Target="/user/config/" Default="" Mode="rw" Description="MPD config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/mympd/mpd</Config>
-  <Config Name="Snapcast FIFO" Target="/tmp/" Default="" Mode="rw" Description="Container Path: /tmp/snapfifo" Type="Path" Display="always" Required="false" Mask="false">/tmp/snapcast</Config>
+  <Config Name="Snapcast FIFO" Target="/tmp/" Default="" Mode="rw" Description="Container Path: /tmp/snapfifo" Type="Path" Display="always" Required="false" Mask="false">/dev/shm/snapcast</Config>
   <Config Name="Music" Target="/music" Default="" Mode="rw" Description="Container Path: /music" Type="Path" Display="always" Required="false" Mask="false"></Config>
   <Config Name="Logs" Target="/log" Default="" Mode="rw" Description="Container Path: /log" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/mympd/log</Config>
   <Config Name="Playlists" Target="/playlists" Default="" Mode="rw" Description="Container Path: /playlists" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/mympd/playlists</Config>

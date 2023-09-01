@@ -97,7 +97,7 @@ To configure the instance and snapcast settings, copy the template to your confi
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/tmp/snapcast</HostDir>
+      <HostDir>/dev/shm/snapcast</HostDir>
       <ContainerDir>/tmp/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -128,7 +128,7 @@ To configure the instance and snapcast settings, copy the template to your confi
   <Config Name="config" Target="/etc/mopidy/" Default="/mnt/user/appdata/Mopidy3/config" Mode="rw" Description="Where the config files live" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mopidy/config</Config>
   <Config Name="cache" Target="/cache/" Default="/mnt/user/appdata/Mopidy3/cache" Mode="rw" Description="Where the cache data live" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mopidy/cache</Config>
   <Config Name="data" Target="/data/" Default="/mnt/user/appdata/Mopidy3/data" Mode="rw" Description="Where the Mopidy Data lives" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mopidy/data</Config>
-  <Config Name="Snapcast FIFO Directory" Target="/tmp/" Default="/tmp/snapcast" Mode="rw" Description="The folder where the fifo files will be saved" Type="Path" Display="always" Required="true" Mask="false">/tmp/snapcast</Config>
+  <Config Name="Snapcast FIFO Directory" Target="/tmp/" Default="/dev/shm/snapcast" Mode="rw" Description="The folder where the fifo files will be saved" Type="Path" Display="always" Required="true" Mask="false">/dev/shm/snapcast</Config>
   <Config Name="Music" Target="/media" Default="" Mode="rw" Description="The location of your music" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Share" Target="/home/.local/share/mopidy/" Default="/mnt/user/appdata/Mopidy3/share" Mode="rw" Description="The location where DB files are stored. If you don't add this, your docker image will bloat." Type="Path" Display="always" Required="false" Mask="false"></Config>
   <Config Name="MPD Port" Target="6600" Default="6600" Mode="tcp" Description="This should match whats in your config" Type="Port" Display="advanced" Required="true" Mask="false">6600</Config>
