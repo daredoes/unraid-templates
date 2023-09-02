@@ -69,6 +69,11 @@ To configure the instance and snapcast settings, copy the template to your confi
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
+        <HostPort>4593</HostPort>
+        <ContainerPort>4593</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
         <HostPort>9001</HostPort>
         <ContainerPort>9001</ContainerPort>
         <Protocol>tcp</Protocol>
@@ -87,18 +92,8 @@ To configure the instance and snapcast settings, copy the template to your confi
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/dev/shm/Mopidy3</HostDir>
-      <ContainerDir>/cache/</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
       <HostDir>/mnt/user/appdata/Mopidy3/share</HostDir>
       <ContainerDir>/home/.local/share/mopidy/</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir>/dev/shm/snapcast</HostDir>
-      <ContainerDir>/tmp/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
@@ -109,32 +104,25 @@ To configure the instance and snapcast settings, copy the template to your confi
   </Data>
   <Environment>
     <Variable>
-      <Value>/tmp</Value>
-      <Name>MOPIDY_FIFO_DIR</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>/data</Value>
-      <Name>SNAPCAST_FIFO_DIR</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
       <Value>/home/templates</Value>
       <Name>TEMPLATES_DIR</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/etc/mopidy/requirements.txt</Value>
+      <Name>REQUIREMENTS_FILE</Name>
       <Mode/>
     </Variable>
   </Environment>
   <Labels/>
   <Config Name="config" Target="/etc/mopidy/" Default="/mnt/user/appdata/Mopidy3/config" Mode="rw" Description="Where the config files live" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mopidy/config</Config>
-  <Config Name="cache" Target="/cache/" Default="/dev/shm/Mopidy3" Mode="rw" Description="Where the cache data live" Type="Path" Display="always" Required="true" Mask="false">/dev/shm/Mopidy3</Config>
   <Config Name="data" Target="/data/" Default="/mnt/user/appdata/Mopidy3/data" Mode="rw" Description="Where the Mopidy Data lives" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mopidy/data</Config>
-  <Config Name="Snapcast FIFO Directory" Target="/tmp/" Default="/dev/shm/snapcast" Mode="rw" Description="The folder where the fifo files will be saved" Type="Path" Display="always" Required="true" Mask="false">/dev/shm/snapcast</Config>
   <Config Name="Music" Target="/media" Default="" Mode="rw" Description="The location of your music" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Share" Target="/home/.local/share/mopidy/" Default="/mnt/user/appdata/Mopidy3/share" Mode="rw" Description="The location where DB files are stored. If you don't add this, your docker image will bloat." Type="Path" Display="always" Required="false" Mask="false"></Config>
   <Config Name="MPD Port" Target="6600" Default="6600" Mode="tcp" Description="This should match whats in your config" Type="Port" Display="advanced" Required="true" Mask="false">6600</Config>
   <Config Name="HTTP Port" Target="6680" Default="6680" Mode="tcp" Description="Where the webserver lives" Type="Port" Display="advanced" Required="true" Mask="false">6680</Config>
+  <Config Name="HTTP Port" Target="4593" Default="4593" Mode="tcp" Description="The default port for TCP Streams in Snapcast" Type="Port" Display="advanced" Required="true" Mask="false">4593</Config>
   <Config Name="Supervisord Port" Target="9001" Default="9001" Mode="tcp" Description="Where the supervisord web UI lives" Type="Port" Display="advanced" Required="true" Mask="false">9001</Config>
-  <Config Name="Mopidy FIFO Dir" Target="MOPIDY_FIFO_DIR" Default="/tmp" Mode="" Description="The folder location where the fifo files for mopidy will be saved" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Templates Dir" Target="TEMPLATES_DIR" Default="/home/templates" Mode="" Description="The folder location where template files are accessed" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="Snapcast FIFO Dir" Target="SNAPCAST_FIFO_DIR" Default="/data" Mode="" Description="The folder location where the fifo files for snapcast will be accessed" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Requirements File" Target="REQUIREMENTS_FILE" Default="/etc/mopidy/requirements.txt" Mode="" Description="The file location of a custom requirements.txt you want installed at the start of each mopidy instance." Type="Variable" Display="always" Required="true" Mask="false"></Config>
 </Container>
